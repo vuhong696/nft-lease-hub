@@ -1,45 +1,21 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Hello World</title>
-    <style>
-      body {
-        padding: 10px 60px;
-        font-family: sans-serif;
-        font-size: 1.5rem;
-      }
-      #greeting {
-        margin: 10px auto;
-        padding: 10px 60px;
-        border: 1px solid #222;
-      }
-      #greeting:empty {
-        display: none;
-      }
-    </style>
-    <script type="module">
-      // Import the backend actor
-      import { backend } from 'declarations/backend';
-      // Add an event listener to the form
-      document.querySelector('form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        // Get the name from the input field
-        const name = document.getElementById('name').value.toString();
-        // Calling the method "greet" on the backend actor with the name
-        const greeting = await backend.greet(name);
-        // Display the greeting returned by the backend actor
-        document.getElementById('greeting').innerText = greeting;
-      });
-    </script>
-  </head>
-  <body>
-    <main>
-      <form>
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
-    </main>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>IC Hello Starter</title>
+  <base href="/" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+
+<body>
+  <div class="browser-warning">
+    ⚠️ If this page appears broken, try reloading. If the problem persists, try switching browsers; Chrome or
+    Firefox are recommended.
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
