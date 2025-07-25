@@ -1,0 +1,18 @@
+(
+  record {
+    send_whitelist = vec { principal "7ttz7-uzpkw-5ib73-pm3wv-w5zk3-kqawc-kvc6w-ok2g6-xfma5-3llwc-mqe"; };
+    token_symbol = opt "ICP";
+    transfer_fee = opt record { e8s = 10000 : nat64 };
+    minting_account = "bc29896c6362fe9e55374fdb7ff2c693113c9be86babdcafcff396133f46ca0f";
+    transaction_window = null;
+    max_message_size_bytes = null;
+    archive_options = null;
+    initial_values = vec {
+      record {
+        "bc29896c6362fe9e55374fdb7ff2c693113c9be86babdcafcff396133f46ca0f";
+        record { e8s = 1000000000 : nat64 };
+      }
+    };
+    token_name = null;
+  }
+)

@@ -1,23 +1,39 @@
 {
   "canisters": {
-    "backend": {
-      "main": "backend/app.mo",
-      "type": "motoko",
-      "args": "--enhanced-orthogonal-persistence"
+    "NFTLeaseHub_backend": {
+      "main": "src/NFTLeaseHub_backend/main.mo",
+      "type": "motoko"
     },
-    "frontend": {
-      "dependencies": ["backend"],
-      "frontend": {
-        "entrypoint": "frontend/index.html"
-      },
-      "source": ["frontend/dist"],
-      "type": "assets"
+    "NFTLeaseHub_frontend": {
+      "dependencies": [
+        "NFTLeaseHub_backend"
+      ],
+      "source": [
+        "src/NFTLeaseHub_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "NFTLeaseHub_frontend"
+    },
+    "dip721": {
+      "main": "src/ic-nft/src/main.mo",
+      "type": "motoko"
+    },
+    "sharing": {
+      "main": "src/NFTLeaseHub/src/main.mo",
+      "type": "motoko"
+    },
+    "ledger": {
+      "type": "custom",
+      "wasm": "ledger.wasm",
+      "candid": "ledger.private.did"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": "mops sources"
     }
   },
   "output_env_file": ".env",
-  "defaults": {
-    "build": {
-      "packtool": "mops sources"
-    }
-  }
+  "version": 1
 }
